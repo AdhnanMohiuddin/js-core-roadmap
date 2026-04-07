@@ -1,0 +1,16 @@
+/* CSS for DOM Advanced Module */
+body { font-family: 'Inter', sans-serif; background: #0f172a; color: #f8fafc; padding: 40px; }
+.card { max-width: 700px; margin: auto; background: #1e293b; padding: 40px; border-radius: 20px; border: 1px solid #334155; }
+.back-link { color: #94a3b8; text-decoration: none; margin-bottom: 20px; display: inline-block; }
+
+.section { margin-bottom: 40px; padding-bottom: 20px; border-bottom: 1px solid #334155; }
+h2 { color: #38bdf8; }
+
+#scroll-box { height: 200px; overflow-y: scroll; background: #0f172a; padding: 20px; border-radius: 10px; margin: 10px 0; }
+.list-item { background: #334155; padding: 10px; margin-bottom: 5px; border-radius: 5px; }
+
+input { padding: 12px; background: #0f172a; border: 1px solid #334155; color: white; border-radius: 8px; width: 70%; }
+button { padding: 12px 20px; background: #38bdf8; color: #0f172a; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; }
+button:hover { background: #7dd3fc; }
+
+.highlight { background: #3b82f6; color: white; transition: 0.3s; }

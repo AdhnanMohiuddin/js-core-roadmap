@@ -17,28 +17,112 @@
  */
 
 // ---------------------------------------------------------
-// 1. CALLBACK FUNCTIONS
+// 1. CALLBACK FUNCTIONS (The Engine)
 // ---------------------------------------------------------
 /*
 DEFINITION: A Callback is a function passed as an argument to 
-another function, to be executed "later".
+another function, intended to be executed "later".
 
-LAYMAN ANALOGY (Ordering Food):
+LAYMAN ANALOGY (The Ordering System):
 When you order food, you give the shop your phone number (The Callback). 
-You don't wait at the counter. When the food is ready, they use your number 
-to call you back.
+The shop is the "Boss" function. Your number is the "Task" to do when 
+the food is ready.
 */
 
-function welcomeUser(name, callback) {
-    console.log(`1. Process: Preparing welcome for ${name}...`);
-    // After some "work", we execute the callback
-    callback();
+// 1.1 The Basic "Task for Later"
+function notifyManager() {
+    console.log("   Manager: Task completed! ✅");
 }
 
-// Passing an anonymous function as the "callback"
-welcomeUser("Adnan", function () {
-    console.log("1. Callback: Welcome successfully sent! ✅");
+function finishWork(taskName, callback) {
+    console.log(`1.1 Process: Working on ${taskName}...`);
+    callback(); // We EXECUTE the callback here
+}
+
+// CRITICAL RULE: Give the name of the function, NOT notifyManager()
+finishWork("Monthly Audit", notifyManager);
+
+
+// 1.2 Passing Data TO a Callback
+// The "Boss" function can give data to the "Worker"
+function processNumbers(num1, num2, operation) {
+    console.log("\n1.2 Process: Performing math...");
+    return operation(num1, num2); // The operation is the callback
+}
+
+const add = (a, b) => a + b;
+const multiply = (a, b) => a * b;
+
+console.log("   Sum:", processNumbers(5, 5, add));
+console.log("   Product:", processNumbers(5, 5, multiply));
+
+
+// 1.3 The Difference: Reference vs. Execution
+/*
+MISTAKE: finishWork("Audit", notifyManager()); 
+If you add (), the function runs IMMEDIATELY. 
+You must pass the function REFERENCE (the name only).
+*/
+
+
+// ---------------------------------------------------------
+// 1.4 THE "PLUGIN" ANALOGY (Why do we use this?)
+// ---------------------------------------------------------
+/*
+Imagine a "Smart Oven". It knows HOW to heat up, but it has no 
+idea WHAT you want to cook. 
+
+- The Oven is the Higher-Order Function.
+- The Recipe is the CALLBACK (the plugin).
+
+The oven runs its general code (Heating up...), and then it 
+calls your specific "Recipe" at the perfect time.
+*/
+
+function startSmartOven(foodName, recipeCallback) {
+    console.log(`\n1.4 Machine: Preheating for ${foodName}... 🌡️`);
+    console.log("1.4 Machine: Oven at 200 degrees.");
+
+    // The machine now says: "Now I will use YOUR specific instructions!"
+    recipeCallback();
+
+    console.log("1.4 Machine: Work finished! 🔔");
+}
+
+// Plugin #1: The Pizza Recipe
+startSmartOven("Pizza", () => {
+    console.log("   Plugin: Baking for 15 minutes... 🍕");
 });
+
+// Plugin #2: The Cookie Recipe
+startSmartOven("Cookies", () => {
+    console.log("   Plugin: Baking for 8 minutes until golden... 🍪");
+});
+
+
+// ---------------------------------------------------------
+// 1.5 THE "DECISION" (Using Callbacks with Logic)
+// ---------------------------------------------------------
+/*
+Callbacks aren't just for printing. We use them so the BOSS 
+function can make decisions based on the WORKER'S rules.
+*/
+
+function validateUser(username, checkRules) {
+    const isValid = checkRules(username); // Using the callback rules
+
+    if (isValid) {
+        console.log(`\n1.5 System: Access GRANTED for ${username} ✅`);
+    } else {
+        console.log(`\n1.5 System: Access DENIED for ${username} ❌`);
+    }
+}
+
+// Custom Rule: Username must be longer than 5 letters
+const lengthRule = (name) => name.length > 5;
+
+validateUser("Ad", lengthRule);      // Denied!
+validateUser("AdnanMM", lengthRule); // Granted!
 
 
 // ---------------------------------------------------------
@@ -151,6 +235,54 @@ console.log("   .some(Melon?):", hasMelon);
 console.log("   .every(All strings?):", allString);
 
 
+// ---------------------------------------------------------
+// 8. ITERATING OBJECTS WITH HOFs (The Pro Way)
+// ---------------------------------------------------------
+/*
+Objects themselves don't have .map() or .forEach(). 
+To use these tools, we first turn the Object into an Array 
+using Object.entries().
+*/
+
+const person = {
+    name: "John",
+    age: 30,
+    city: "New York"
+};
+
+// This gives us: [ ["name", "John"], ["age", 30], ["city", "New York"] ]
+const details = Object.entries(person);
+
+console.log("\n8. Object Iteration:");
+
+// 8.1 The "Just Printing" approach (Side Effects)
+// If we just want to log, forEach is the correct tool.
+details.forEach(([key, value]) => {
+    console.log(`   Key: ${key}, Value: ${value}`);
+});
+
+
+// 8.2 The "Transformation" approach (Mapping)
+// PROBLEM: If we use .map() inside a function but don't RETURN the result, 
+// we won't see anything outside that function!
+
+const mapConcept = () => {
+    // We RETURN the new array created by .map()
+    return details.map(([key, value]) => `Property: ${key} is ${value}`);
+};
+
+console.log("\n8.2 Map in a function (Returning a list):");
+console.log(mapConcept());
+
+
+/*
+💡 IMPORTANT DISTINCTION:
+- .map()     -> Use this if you want to COLLECT the results into a new array.
+- .forEach() -> Use this if you just want to DO something (like console.log) 
+                and you don't care about a return value.
+*/
+
+
 /*
 💡 FINAL SUMMARY & REVISION:
 - Callbacks: Passing a "Task" to be done later.
@@ -159,4 +291,5 @@ console.log("   .every(All strings?):", allString);
 - .map: Transform every item (returns a new list).
 - .filter: Select specific items (returns a new list).
 - .reduce: Combine all items into ONE value.
+- Object.entries: Bridge that lets objects use Array HOFs!
 */

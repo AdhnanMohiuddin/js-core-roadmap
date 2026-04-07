@@ -1,0 +1,40 @@
+/* CSS for DOM Basics Module */
+body { 
+    font-family: 'Inter', system-ui, sans-serif; 
+    padding: 40px; 
+    background: #f8fafc; 
+    color: #1e293b; 
+    display: flex;
+    justify-content: center;
+}
+
+.hero-card { 
+    width: 100%;
+    max-width: 600px; 
+    background: white; 
+    padding: 40px; 
+    border-radius: 20px; 
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); 
+}
+
+.highlight { background: #fef08a; padding: 2px 5px; border-radius: 4px; border: 1px solid #facc15; }
+.hidden { display: none; }
+.success-border { border-left: 5px solid #22c55e !important; }
+
+.controls { display: flex; flex-direction: column; gap: 15px; margin: 25px 0; }
+input { padding: 12px; border: 2px solid #e2e8f0; border-radius: 10px; font-size: 16px; outline: none; transition: 0.2s; }
+input:focus { border-color: #3b82f6; }
+
+.btn-group { display: flex; gap: 10px; }
+button { flex: 1; padding: 12px; border: none; border-radius: 10px; font-weight: 600; cursor: pointer; transition: 0.2s; }
+#add-btn { background: #3b82f6; color: white; }
+#clear-btn { background: #ef4444; color: white; }
+button:hover { opacity: 0.9; transform: translateY(-1px); }
+
+ul { padding: 0; list-style: none; margin-top: 20px; }
+li { background: #f1f5f9; padding: 15px; border-radius: 10px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+.delete-item { background: transparent; color: #94a3b8; border: none; cursor: pointer; font-size: 18px; width: auto; padding: 0 10px; }
+.delete-item:hover { color: #ef4444; }
+
+.back-link { display: inline-block; margin-bottom: 30px; color: #64748b; text-decoration: none; font-size: 14px; }
+.back-link:hover { text-decoration: underline; }

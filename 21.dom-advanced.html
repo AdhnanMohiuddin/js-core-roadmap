@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 21: DOM Advanced 🚀</title>
+    <!-- Linking our separate CSS file -->
+    <link rel="stylesheet" href="21.dom.css">
+</head>
+<body>
+
+    <div class="card">
+        <a href="index.html" class="back-link">← Master Dashboard</a>
+        <h1 style="color: #38bdf8;">DOM Advanced 🚀</h1>
+        <p>In this module, we'll learn about multi-selectors, scrolling, and data persistence.</p>
+
+        <!-- 1. Selection & Loops -->
+        <div class="section">
+            <h2 id="sec-1">1. Selecting Multiple Items at Once</h2>
+            <p><code>querySelector</code> only grabs the <b>first</b> item it finds. <code>querySelectorAll</code> grabs <b>ALL</b> matching items and groups them into a list!</p>
+            <div id="scroll-box" style="height: 150px;">
+                <div class="list-item target-box">📦 Box 1 (Change me)</div>
+                <div class="list-item target-box">📦 Box 2 (Change me)</div>
+                <div class="list-item target-box">📦 Box 3 (Change me)</div>
+                <div class="list-item target-box">📦 Box 4 (Change me)</div>
+                <div class="list-item target-box">📦 Box 5 (Change me)</div>
+                <div class="list-item target-box">📦 Box 6 (Change me)</div>
+                <div class="list-item target-box">📦 Box 7 (Change me)</div>
+                <div class="list-item target-box">📦 Box 8 (Change me)</div>
+                <div class="list-item target-box">📦 Box 9 (Change me)</div>
+                <div class="list-item target-box">📦 Box 10 (Change me)</div>
+                <div class="list-item">🧱 Wall (Ignore me)</div>
+                <div class="list-item">🧱 Wall (Ignore me)</div>
+            </div>
+            <button id="highlight-first-btn" style="margin-bottom: 5px; background: #ef4444;">Paint FIRST Box Red (querySelector)</button>
+            <button id="highlight-all-btn" style="margin-bottom: 5px;">Paint ALL Boxes Blue (querySelectorAll)</button>
+        </div>
+
+        <!-- 2. Local Storage -->
+        <div class="section">
+            <h2 id="sec-2">2. Local Storage (Persistence)</h2>
+            <p>Type your name below. It will stay there even if you refresh!</p>
+            <input type="text" id="name-input" placeholder="Your name...">
+            <button id="save-btn">Save to Browser</button>
+            <button id="clear-data-btn" style="background: #ef4444; color: white;">Clear Data</button>
+        </div>
+
+        <!-- 3. Intersection Observer (The Camera) -->
+        <div class="section" id="observer-section">
+            <h2 id="observer-title">3. Intersection Observer (The Camera)</h2>
+            <p>I will "Glow" Blue only when I am completely visible in the frame!</p>
+            <div id="glow-box" style="height: 100px; background: #334155; border-radius: 10px; transition: 1s;"></div>
+        </div>
+
+        <!-- 5. Debouncing (The Bouncer) -->
+        <div class="section">
+            <h2>5. Debouncing (The Bouncer)</h2>
+            <p>Watch the console. I won't search until you STOP typing for 600ms.</p>
+            <input type="text" id="debounce-input" placeholder="Search...">
+        </div>
+
+        <!-- 6. Performance: Fragment -->
+        <div class="section">
+            <h2>6. Performance: DocumentFragment</h2>
+            <p>Click below to build 10 items instantly using a "Ghost Box".</p>
+            <button id="fragment-btn">Build 10 at Once</button>
+            <ul id="fast-list" style="margin-top: 10px;"></ul>
+        </div>
+
+        <!-- 7. Data Attributes (New!) -->
+        <div class="section">
+            <h2 id="sec-7">7. Data Attributes (Secret HTML Data)</h2>
+            <p>Modern HTML lets us hide data inside tags using <code>data-*</code>. Click below:</p>
+            <button class="secret-btn" data-role="Admin" data-id="999">User 1 (Admin)</button>
+            <button class="secret-btn" data-role="Guest" data-id="002">User 2 (Guest)</button>
+        </div>
+
+        <!-- 8. Scroll Navigation -->
+        <div class="section">
+            <h2>8. Smooth Navigation (Window Scrolling)</h2>
+            <p>Click below to smoothly act like a real website's Navigation Menu!</p>
+            <div class="btn-group">
+                <button class="nav-btn" data-target="sec-1">Scroll to Section 1</button>
+                <button class="nav-btn" data-target="sec-2">Scroll to Section 2</button>
+                <button class="nav-btn" data-target="sec-7">Scroll to Section 7</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="21.dom-advanced.js"></script>
+</body>
+</html>

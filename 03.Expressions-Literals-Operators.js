@@ -43,7 +43,7 @@ let myExpression = 10 + 20; // 10 + 20 is the expression
  * Statement: A piece of code that performs an action. It's like a complete sentence.
  * Example: let x = 10; (Variable declaration), if () { ... } (Control flow)
  */
-if (true) { console.log("I am a statement"); }
+if (true) { console.log("Statement Example:", "I am a statement"); }
 
 
 // -- TEMPLATE LITERALS --
@@ -67,4 +67,4 @@ let multiline = `This is line 1
 This is line 2`;
 
 // 2. We can perform math inside ${}
-console.log(`The sum of 10 + 20 is: ${10 + 20}`); 
+console.log("Template Literal Math:", `The sum of 10 + 20 is: ${10 + 20}`); 

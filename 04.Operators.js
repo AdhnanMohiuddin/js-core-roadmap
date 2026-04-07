@@ -59,30 +59,30 @@
  // Arithmetic operators
 let a = 10;
 let b = 5;
-console.log(a + b); // Output: 15
-console.log(a - b); // Output: 5  
-console.log(a * b); // Output: 50
-console.log(a / b); // Output: 2
-console.log(a % b); // Output: 0
+console.log("Addition (a + b):", a + b); // Output: 15
+console.log("Subtraction (a - b):", a - b); // Output: 5  
+console.log("Multiplication (a * b):", a * b); // Output: 50
+console.log("Division (a / b):", a / b); // Output: 2
+console.log("Modulus (a % b):", a % b); // Output: 0
 
 
 // unary operators
 let x = 5;
 x++; // x is now 6
-console.log(x); // Output: 6
+console.log("After Increment (x++):", x); // Output: 6
 x--; // x is now 5
-console.log(x); // Output: 5
-console.log(typeof a); // Output: number
-console.log(typeof "Hello"); // Output: string
+console.log("After Decrement (x--):", x); // Output: 5
+console.log("Type of a:", typeof a); // Output: number
+console.log("Type of 'Hello':", typeof "Hello"); // Output: string
 
 let obj = { name : "Adhnan",
             age : 22,
             hobby : "coding",
             hasPet : true
           };
- console.log(obj); // Output: { name: "Adhnan", age: 22, hobby: "coding" , hasPet: true }
+ console.log("Object BEFORE delete:", obj); // Output: { name: "Adhnan", age: 22, hobby: "coding" , hasPet: true }
 delete obj.hasPet; // obj is now { name: "Adhnan", age: 22, hobby: "coding" }
-console.log(obj); // Output: { name: "Adhnan", age: 22, hobby: "coding" }
+console.log("Object AFTER delete:", obj); // Output: { name: "Adhnan", age: 22, hobby: "coding" }
 
 
 // Assignment operators
@@ -91,55 +91,55 @@ console.log(obj); // Output: { name: "Adhnan", age: 22, hobby: "coding" }
 // For example, instead of writing x = x + 5, we can write x += 5. This makes our code more concise and easier to read.
 let c = 10;
 c += 5;
-console.log(c); // Output: 15
+console.log("Addition Assignment (c += 5):", c); // Output: 15
 c *= 2;
-console.log(c); // Output: 30
+console.log("Multiplication Assignment (c *= 2):", c); // Output: 30
 c /= 3;
-console.log(c); // Output: 10
+console.log("Division Assignment (c /= 3):", c); // Output: 10
 c -= 4;
-console.log(c); // Output: 6
+console.log("Subtraction Assignment (c -= 4):", c); // Output: 6
 c %= 4;
-console.log(c); // Output: 2
+console.log("Modulus Assignment (c %= 4):", c); // Output: 2
 
 
 
 // Comparison operators
-console.log(a == b); // Output: false 
-console.log(a === b); // Output: false
+console.log("Loose Equality (a == b):", a == b); // Output: false 
+console.log("Strict Equality (a === b):", a === b); // Output: false
 // the == operator loosly compares the value of a and b. it does not compare the type of the operands.
-// for example console.log(5 == "5"); // Output: true
+// for example console.log("Loose Equality Exampe (5 == '5'):", 5 == "5"); // Output: true
 // but if we use the === operator, it will strictly compare the value and type of the operands.
-// if we do console.log(5 === "5"); // Output: false as it also check's the type of the operands
-console.log(a != b); // Output: true
+// if we do console.log("Strict Equality Example (5 === '5'):", 5 === "5"); // Output: false as it also check's the type of the operands
+console.log("Loose Not Equal (a != b):", a != b); // Output: true
 
 // !== is the stricter version of !=. previously we saw that 5 != "5" is false because it only compares the value of the operands. 
 // but if we use !==, it will compare both the value and type of the operands. 
 // so 5 !== "5" is true because they are not of the same type.
-console.log(a !== b); // Output: true
-console.log(a > b); // Output: true
-console.log(a < b); // Output: false
-console.log(a >= b); // Output: true
-console.log(a <= b); // Output: false
+console.log("Strict Not Equal (a !== b):", a !== b); // Output: true
+console.log("Greater Than (a > b):", a > b); // Output: true
+console.log("Less Than (a < b):", a < b); // Output: false
+console.log("Greater or Equal (a >= b):", a >= b); // Output: true
+console.log("Less or Equal (a <= b):", a <= b); // Output: false
 
 
 // Logical operators
 
 // && is a logical AND operator. it returns true if both operands are ture.
-console.log(true && false); // Output: false
+console.log("Logical AND (true && false):", true && false); // Output: false
 // || is a logical OR operator. it returns true if at least one of the operands is true.
-console.log(true || false); // Output: true
+console.log("Logical OR (true || false):", true || false); // Output: true
 // ! is a logical NOT operator. it returns true if the operand is false and false if the operand is true.
-console.log(!true); // Output: false
-console.log(!false); // Output: true
+console.log("Logical NOT (!true):", !true); // Output: false
+console.log("Logical NOT (!false):", !false); // Output: true
 
 
 // Bitwise operators
-console.log(5 & 3); // Output: 1
-console.log(5 | 3); // Output: 7
-console.log(5 ^ 3); // Output: 6
-console.log(~5); // Output: -6
-console.log(5 << 1); // Output: 10
-console.log(5 >> 1); // Output: 2   
+console.log("Bitwise AND (5 & 3):", 5 & 3); // Output: 1
+console.log("Bitwise OR (5 | 3):", 5 | 3); // Output: 7
+console.log("Bitwise XOR (5 ^ 3):", 5 ^ 3); // Output: 6
+console.log("Bitwise NOT (~5):", ~5); // Output: -6
+console.log("Left Shift (5 << 1):", 5 << 1); // Output: 10
+console.log("Right Shift (5 >> 1):", 5 >> 1); // Output: 2   
 
 // the bitwise operators are used to perform bitwise operations on binary representations of numbers.
 // they are not commonly used in everyday programming but can be useful in certain situations,
@@ -149,8 +149,8 @@ console.log(5 >> 1); // Output: 2
 
 
 // Ternary operator
-let result = (a > b) ? "Greater" : "Smaller";
-console.log(result); // Output: Greater
+let result_ternary = (a > b) ? "Greater" : "Smaller";
+console.log("Ternary Operator (a > b):", result_ternary); // Output: Greater
 
 // the ternary operator is a shorthand for an if-else statement.
 //  it takes three operands: a condition, an expression to execute if the condition is true, and an expression to execute if the condition is false.
@@ -162,14 +162,14 @@ console.log(result); // Output: Greater
 // we also have nested ternary operators, but they can make the code harder to read, so it's generally recommended to avoid them and use if-else statements instead for better readability.
 // but if you want to see how they work, here is an example:
 
-let age = 25;
-let category = (age < 13) ? "Child" : (age < 20) ? "Teenager" : (age < 65) ? "Adult" : "Senior";
-console.log(category); // Output: Adult
+let age_user = 25;
+let category = (age_user < 13) ? "Child" : (age_user < 20) ? "Teenager" : (age_user < 65) ? "Adult" : "Senior";
+console.log("Nested Ternary (Category):", category); // Output: Adult
 
 // just for understanding
 let num =2000;
 
  //                 condition     if true                        if false then the  condition again      if True again                     if false condition     if true                              if false                            
-let nestedTernary = (num < 10) ? "The number is less then 10 " : (num < 20)                          ? "the number is between 11 - 20 " : (test < 30 ) ?         "the number is between 21 - 30 " : "the number is greater then 30"
+let nestedTernary = (num < 10) ? "The number is less then 10 " : (num < 20)                          ? "the number is between 11 - 20 " : (num < 30 ) ?         "the number is between 21 - 30 " : "the number is greater then 30"
 
-console.log(nestedTernary)
+console.log("Deep Nested Ternary:", nestedTernary)

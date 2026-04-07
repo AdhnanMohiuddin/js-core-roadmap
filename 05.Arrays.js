@@ -38,13 +38,13 @@
    let symbolArr = [Symbol("a"), Symbol("b"), Symbol("c"), Symbol("d"), Symbol("e")];
    let mixedArr = [1, "John", true, null, undefined, Symbol("a"), {name: "John"}, [1,2,3], function() {console.log("Hello")}, new Date(), /a/, new Map(), new Set()];
 
-   console.log("nunArr: ",numArr);
-   console.log("strArr: ",strArr);
-   console.log("boolArr: ",boolArr);
-   console.log("nullArr: ",nullArr);
-   console.log("undefinedArr: ",undefinedArr);
-   console.log("symbolArr: ",symbolArr);  
-   console.log("mixedArr: ",mixedArr);
+   console.log("1.1 Number Array:",numArr);
+   console.log("1.2 String Array:",strArr);
+   console.log("1.3 Boolean Array:",boolArr);
+   console.log("1.4 Null Array:",nullArr);
+   console.log("1.5 Undefined Array:",undefinedArr);
+   console.log("1.6 Symbol Array:",symbolArr);  
+   console.log("1.7 Mixed Array (Everything matched!):",mixedArr);
 
 
    // non primitive arrays example
@@ -61,13 +61,13 @@
    let mapArry = [new Map(), new Map(), new Map(), new Map(), new Map()];
    let setArr = [new Set(), new Set(), new Set(), new Set(), new Set()];
 
-   console.log("objArr: ",objArr);
-   console.log("arrArr: ",arrArr);
-   console.log("funcArr: ",funcArr);
-   console.log("dateArr: ",dateArr);
-   console.log("regexArr: ",regexArr);
-   console.log("mapArry: ",mapArry);
-   console.log("setArr: ",setArr);
+   console.log("2.1 Object Array:",objArr);
+   console.log("2.2 Array of Arrays (Nested):",arrArr);
+   console.log("2.3 Function Array:",funcArr);
+   console.log("2.4 Date Array:",dateArr);
+   console.log("2.5 Regex Array:",regexArr);
+   console.log("2.6 Map Array:",mapArry);
+   console.log("2.7 Set Array:",setArr);
 
    
    /*******************************************************/

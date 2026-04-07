@@ -1,15 +1,131 @@
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Core JS Concepts</title>
+    <title>Core JS Explorer 🚀</title>
+    <style>
+        body { font-family: -apple-system, system-ui, sans-serif; background: #eaeff1; padding: 40px; margin: 0; }
+        .card { background: white; max-width: 900px; margin: auto; border-radius: 12px; padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
+        .header { text-align: center; margin-bottom: 40px; }
+        .controls { display: flex; align-items: center; justify-content: center; gap: 15px; margin-top: 30px; }
+        select { border: 2px solid #3498db; padding: 12px 20px; border-radius: 8px; outline: none; font-size: 16px; cursor: pointer; color: #2c3e50; font-weight: 500; }
+        button { background: #3498db; color: white; border: none; padding: 12px 30px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.2s; font-size: 16px; box-shadow: 0 4px 6px rgba(52,152,219,0.2); }
+        button:hover { background: #2980b9; transform: translateY(-1px); }
+        #status { text-align: center; margin-top: 25px; font-size: 14px; color: #7f8c8d; }
+        .dom-link { display: none; margin-top: 30px; text-align: center; padding: 20px; background: rgba(52, 152, 219, 0.05); border-radius: 10px; border: 1px dashed #3498db; border-radius: 12px; }
+        .dom-link a { color: #3498db; text-decoration: none; font-weight: bold; font-size: 18px; }
+    </style>
 </head>
-
 <body>
-    <p>This page is for revising core JavaScript concepts.</p>
+
+    <div class="card">
+        <div class="header">
+            <h1 style="margin:0; font-size: 32px; color: #232f3e;">Core JS Explorer Dashboard 🗺️</h1>
+            <p style="color: #7f8c8d; font-size: 16px; margin-top: 10px;">Select a module to run its logic in the developer console.</p>
+        </div>
+
+        <div class="controls">
+            <select id="module-selector">
+                <option value="">-- Select Module --</option>
+                <optgroup label="🟢 BASICS (1-4)">
+                    <option value="01.variables.js">01. Variables</option>
+                    <option value="02.datatypes.js">02. Data Types</option>
+                    <option value="03.Expressions-Literals-Operators.js">03. Expressions</option>
+                    <option value="04.Operators.js">04. Operators</option>
+                </optgroup>
+                <optgroup label="🟡 DATA STRUCTURES (5-6)">
+                    <option value="05.Arrays.js">05. Arrays</option>
+                    <option value="06.objects.js">06. Objects</option>
+                </optgroup>
+                <optgroup label="🟠 LOGIC & LOOPS (7-8)">
+                    <option value="07.control-flow.js">07. Control Flow</option>
+                    <option value="08.iteration-patterns.js">08. Iteration Patterns</option>
+                </optgroup>
+                <optgroup label="🟣 FUNCTIONS & SCOPE (9-12)">
+                    <option value="09.functions.js">09. Functions</option>
+                    <option value="10.this-keyword.js">10. The 'this' Keyword</option>
+                    <option value="11.closures.js">11. Closures</option>
+                    <option value="12.functional-iteration.js">12. Functional Iteration</option>
+                </optgroup>
+                <optgroup label="⚪ ASYNC (13-15)">
+                    <option value="13.async-basics.js">13. Async Basics</option>
+                    <option value="14.promises.js">14. Promises</option>
+                    <option value="15.async-await.js">15. Async/Await</option>
+                </optgroup>
+                <optgroup label="🔵 CORE POWER (16-19)">
+                    <option value="16.json-and-fetch.js">16. JSON & Fetch</option>
+                    <option value="17.error-handling.js">17. Error Handling</option>
+                    <option value="18.modules.js">18. ES Modules</option>
+                    <option value="19.advanced-execution-&-Prototypes.js">19. Advanced Execution</option>
+                </optgroup>
+                <optgroup label="🌎 WEB API & DOM (20-21)">
+                    <option value="20.dom-basics.html">20. DOM Basics</option>
+                    <option value="21.dom-advanced.html">21. DOM Advanced</option>
+                </optgroup>
+                <optgroup label="🌀 ADVANCED PATTERNS (22-24)">
+                    <option value="22.recursion.js">22. Recursion</option>
+                    <option value="23.iterators-generators.js">23. Iterators & Generators</option>
+                    <option value="24.modern-collections.js">24. Modern Collections</option>
+                </optgroup>
+            </select>
+            <button id="run-btn">Run Module</button>
+        </div>
+
+        <div id="status">No active module. Open Console (F12) for logs.</div>
+
+        <div id="dom-launcher" class="dom-link">
+            🚀 <b>Notice:</b> This module requires a dedicated HTML workspace.<br><br>
+            <a id="dom-go-btn" href="#">Open DOM Playground Workspace →</a>
+        </div>
+    </div>
+
+    <script>
+        const selector = document.getElementById('module-selector');
+        const runBtn = document.getElementById('run-btn');
+        const status = document.getElementById('status');
+        const launcher = document.getElementById('dom-launcher');
+
+        runBtn.addEventListener('click', () => {
+            const selectedVal = selector.value;
+            if (!selectedVal) return alert("Select a module!");
+
+            // If it's the HTML file, we just go there
+            if (selectedVal.endsWith('.html')) {
+                window.location.href = selectedVal;
+                return;
+            }
+
+            // Otherwise, we refresh the dashboard with the module param
+            const url = new URL(window.location);
+            url.searchParams.set('module', selectedVal);
+            window.location.href = url.href;
+        });
+
+        // Load module from param
+        const activeModule = new URLSearchParams(window.location.search).get('module');
+        if (activeModule) {
+            selector.value = activeModule;
+            status.innerHTML = `<span style="color:#2ecc71;">Running:</span> <b>${activeModule}</b>`;
+
+            if (activeModule.endsWith('.html')) {
+                launcher.style.display = "block";
+                document.getElementById('dom-go-btn').href = activeModule;
+            } else {
+                launcher.style.display = "none";
+            }
+
+            const script = document.createElement('script');
+            script.src = activeModule;
+            
+            // Modules (18, 19, 20)
+            if (activeModule.includes('modules') || activeModule.includes('Prototypes')) {
+                script.type = "module";
+            }
+            document.body.appendChild(script);
+            console.clear();
+            console.log(`%c LOADER: Loaded ${activeModule}`, 'color: #3498db; font-weight: bold;');
+        }
+    </script>
 </body>
-
-<script src="12.functional-iteration.js"></script>
-
 </html>

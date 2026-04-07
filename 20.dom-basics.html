@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 20: DOM Basics 🎮</title>
+    <!-- We link our external CSS file here -->
+    <link rel="stylesheet" href="20.dom.css">
+</head>
+<body>
+
+    <div class="hero-card">
+        <a href="index.html" class="back-link">← Master Dashboard</a>
+        
+        <h1 id="main-title">DOM Basics Mastery 🎮</h1>
+        <p id="description">Learning element manipulation, attributes, and classes.</p>
+        
+        <div class="controls">
+            <input type="text" id="user-input" placeholder="What's on your mind?">
+            <div class="btn-group">
+                <button id="add-btn">Add Note</button>
+                <button id="clear-btn">Clear List</button>
+            </div>
+        </div>
+
+        <ul id="item-list">
+            <li>
+                <span>Example Note (Click X to delete)</span>
+                <button class="delete-item">×</button>
+            </li>
+        </ul>
+    </div>
+
+    <script type="module" src="20.dom-basics.js"></script>
+</body>
+</html>

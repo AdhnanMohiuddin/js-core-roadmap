@@ -46,21 +46,21 @@ var VarVariable = "I am a var variable";
 let LetVariable = "I am a let variable";
 const ConstVariable = "I am a const variable";
 
-console.log(VarVariable);
-console.log(LetVariable);
-console.log(ConstVariable);
+console.log("var Example:", VarVariable);
+console.log("let Example:", LetVariable);
+console.log("const Example:", ConstVariable);
 
 var VarVariable = "I am a re-declared var variable";
-console.log(VarVariable);
+console.log("var Example (Re-declared):", VarVariable);
 
 // let LetVariable = "I am a re-declared let variable"; // This will throw an error
-// but i can be re-assigned
+// but it can be re-assigned
 LetVariable = "I am an updated let variable";
-console.log(LetVariable);
+console.log("let Example (Updated):", LetVariable);
 
 // const ConstVariable = "I am a re-declared const variable"; // This will throw an error
 // ConstVariable = "I am an updated const variable"; // This will also throw an error
-console.log(ConstVariable);
+console.log("const Example (Cannot be updated):", ConstVariable);
 
 
 // -- HOISTING & TDZ --
@@ -68,10 +68,10 @@ console.log(ConstVariable);
 // 1. HOISTING
 // Hoisting is JavaScript's default behavior of moving declarations to the top.
 
-console.log(hoistedVar); // Output: undefined (var is hoisted but not initialized)
+console.log("Hoisted var (before initialization):", hoistedVar); // Output: undefined
 var hoistedVar = "I am hoisted";
 
-// console.log(hoistedLet); // ReferenceError: Cannot access 'hoistedLet' before initialization
+// console.log("Hoisted let:", hoistedLet); // ReferenceError: Cannot access 'hoistedLet' before initialization
 let hoistedLet = "I am not hoisted in a way you can use me";
 
 
@@ -81,9 +81,9 @@ let hoistedLet = "I am not hoisted in a way you can use me";
 
 {
    // -- Starting of TDZ --
-   // console.log(name); // Error!
+   // console.log("TDZ Name:", name); // Error!
    let name = "Adnan"; // -- End of TDZ --
-   console.log(name); // Output: Adnan
+   console.log("TDZ Resolved Name:", name); // Output: Adnan
 }
 
 

@@ -25,22 +25,22 @@
 
 //Number
 let age = 25;
-console.log(age); // Output: 25
+console.log("Number Example:", age); // Output: 25
 //String
 let name = "Alice";
-console.log(name); // Output: Alice
+console.log("String Example:", name); // Output: Alice
 //Boolean
 let isStudent = true;
-console.log(isStudent);
+console.log("Boolean Example:", isStudent);
 //Null
 let emptyValue = null;
-console.log(emptyValue);
+console.log("Null Example:", emptyValue);
 //Undefined
 let uninitializedVariable;
-console.log(uninitializedVariable);
+console.log("Undefined Example:", uninitializedVariable);
 //Symbol
 let uniqueId = Symbol('id');
-console.log(uniqueId);
+console.log("Symbol Example:", uniqueId);
 
 //BigInt (For very large numbers)
 let largeNumber = 1234567890123456789012345678901234567890n;
@@ -55,12 +55,12 @@ console.log("Type of NaN:", typeof NaN); // Output: number (A famous JS trick!)
 
 // to check the type of a variable, we can use the typeof operator Example:
 
-console.log(typeof age); // Output: number
-console.log(typeof name); // Output: string
-console.log(typeof isStudent); // Output: boolean
-console.log(typeof emptyValue); // Output: object (this is a known quirk in JavaScript)
-console.log(typeof uninitializedVariable); // Output: undefined
-console.log(typeof uniqueId); // Output: symbol
+console.log("Type of age:", typeof age); // Output: number
+console.log("Type of name:", typeof name); // Output: string
+console.log("Type of isStudent:", typeof isStudent); // Output: boolean
+console.log("Type of emptyValue:", typeof emptyValue); // Output: object (this is a known quirk in JavaScript)
+console.log("Type of uninitializedVariable:", typeof uninitializedVariable); // Output: undefined
+console.log("Type of uniqueId:", typeof uniqueId); // Output: symbol
 
 
 // Example of non-primitive (reference) data types
@@ -71,18 +71,18 @@ let person = {
     age: 30,
     city: "New York"
 };
-console.log(person); // Output: { name: "Alice", age: 30 }
+console.log("Object Example:", person); // Output: { name: "Alice", age: 30 }
 //we can access the properties of an object using dot notation or bracket notation
-console.log(person.name); // Output: Alice
+console.log("Object Name (Dot Notation):", person.name); // Output: Alice
 /*or*/
-console.log(person["age"]); // Output: 30
-console.log(person.city); // Output: New York
-console.log(typeof person); // Output: object
+console.log("Object Age (Bracket Notation):", person["age"]); // Output: 30
+console.log("Object City:", person.city); // Output: New York
+console.log("Type of person object:", typeof person); // Output: object
 
 // Array
 let numbers = [1, 2, 3, 4, 5];
-console.log(numbers); // Output: [1, 2, 3, 4, 5]
-console.log(typeof numbers); // Output: object (arrays are a type of object in JavaScript)
+console.log("Array Example:", numbers); // Output: [1, 2, 3, 4, 5]
+console.log("Type of numbers array:", typeof numbers); // Output: object (arrays are a type of object in JavaScript)
 
 /* there are many built-in methods for arrays in JavaScript, such as push(), pop(), shift(), unshift(), slice(), splice(), etc. 
     these we will cover in detail in the arrays section of this course.
@@ -122,7 +122,7 @@ function add(a, b) {
 }
 
 let sum = add(5, 10);
-console.log(sum); // Output: 15
+console.log("Function Return (Sum):", sum); // Output: 15
 
 
 // -- TYPE CONVERSION & COERCION --
@@ -152,9 +152,9 @@ console.log("Explicit Conversion:", typeof ageStr); // Output: string
 // 2. IMPLICIT COERCION (Automatic)
 // When JS automatically changes the type based on the operation.
 
-console.log("5" + 2); // Output: "52" (Number 2 is coerced into a string)
-console.log("5" - 2); // Output: 3 (String "5" is coerced into a number)
-console.log("5" * "2"); // Output: 10 (Both coerced into numbers)
+console.log("Implicit Coercion (+ string concat):", "5" + 2); // Output: "52" (Number 2 is coerced into a string)
+console.log("Implicit Coercion (- math operation):", "5" - 2); // Output: 3 (String "5" is coerced into a number)
+console.log("Implicit Coercion (* math operation):", "5" * "2"); // Output: 10 (Both coerced into numbers)
 
 
 // 3. TRUTHY & FALSY VALUES
